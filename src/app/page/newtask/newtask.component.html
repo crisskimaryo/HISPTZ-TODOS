@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div style="text-align: center;font-weight: 700;font:2em;">
+    HISPTZ TODOS
+  </div>
+
+  <div class="in-put">
+    <form class="example-form" [formGroup]="tasksForm" novalidate>
+      <div class="field">
+        <input type="text" style="width: 95%" placeholder="add new task" class="input" formControlName="task">
+        <a class="bcreate button " (click)="newtask()">Add</a>
+      </div>
+    </form>
+  </div>
+  <div [sortablejs]="items">
+    <ul *ngFor="let item of items; let i=index">
+
+      <li (dblclick)="removeTask(i)" class="item-list">
+        {{i+1}}. {{ item }}
+        <span style="float:right">
+          <p>
+            double click to delete or drag to reposition.
+          </p>
+        </span>
+      </li>
+
+
+    </ul>
+
+  </div>
+</div>
